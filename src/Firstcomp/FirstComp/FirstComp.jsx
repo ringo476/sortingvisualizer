@@ -114,6 +114,7 @@ class Firstcomp extends Component {
                     <div className="dropdown ry">
                       <button className="btn btn-secondary dropdown-toggle byn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Choose!
+                        
                       </button>
                       <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a className="dropdown-item" href="#" onClick={this.Bubbles}>Bubble Sort</a></li>
