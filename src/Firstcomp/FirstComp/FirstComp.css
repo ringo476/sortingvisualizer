@@ -1,15 +1,19 @@
 .toolbar{
-    /* background-color: royalblue; */
     width: 100%;
     height:150px;
     padding: 10px;
-    background-color: rgba(10, 10, 119, 0.678);
+    background-image: url(sortingpics.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .but{
     height: 120px;
     width:  160px;
     border-radius: 50%;
     background-color: #cc00ff;
+}
+.he{
+    color: rosybrown;
 }
 .left{
     margin-top: 15px;
@@ -22,10 +26,11 @@
 }
 .head{
     height: 100px;
+    width:480px;
     margin-top: 10px;
     background-color: #cc00ff;
     border-radius: 15px;
-    box-shadow: 5px 6px rgb(22, 1, 1);
+    box-shadow: 5px 6px grey;
 }
 .head:hover {background-color:purple}
 
@@ -43,34 +48,73 @@
     background-color: brown;
 }
 .qqq{
-    height:550px;
+    background-image: url(sortingpic.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     width:100%;
-    background-color: aquamarine;
+    height:550px;
 }
 .array-bar{
-    width:60px;
-    background-color: black;
+    width:35px;
+    background-color: rgba(10, 10, 119, 0.678);
     display: inline-block;
     margin: 0 1px;
+    border-top: 0;
 }
 .ct{
     margin-right: 220px;
     position: absolute;
-    left:350px;
-    bottom:20px;
+    left:450px;
+    bottom:10px;
 }
-@media (max-width:1500px){
+.checkbtn{
+    color: azure;
+    font-size: 25px;
+    cursor: pointer;
+    display:none;
+}
+#check{
+    display:none;
+}
+@media screen and  (max-width:1300px){
+    .ct{
+        margin-right: 120px;
+        position: absolute;
+        left:350px;
+    }
     .array-bar{
-        width:40px;
-        background-color: black;
+        width:10px;
+        background-color: rgba(10, 10, 119, 0.678);
         /* display: inline-block; */
         margin: 0 1px;
+        
+    }
+    .he{
+        font-size: 18px;
+        margin-bottom: 0px;
+        position: absolute;
+        top:26px;
+        left:55px;
+    }
+    .ht{ 
+        height: 10px;
+        width: 100px;
+        margin-top: 30px;
+    }
+    .head{
+        height:100px;
+        width:300px;
     }
 }
-@media (max-width:800px){
+@media screen and (max-width:900px){
+    .ct{
+        margin-right: 20px;
+        position: absolute;
+        left:200px;
+    }
     .array-bar{
-        width:20px;
-        background-color: black;
+        width:5px;
+        background-color: rgba(10, 10, 119, 0.678);
         /* display: inline-block; */
         margin: 0 1px;
     }

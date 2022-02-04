@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-//import './Bubblesort.css';
+
 export default function BubbleSort(ret){
     var n=ret.length;
     const animation=[];
@@ -14,7 +14,7 @@ export default function BubbleSort(ret){
                 ret[j+1]=t;
             }
             else{
-                animation.push([j,j])
+                animation.push([j,j]);
             }
         }
     }
