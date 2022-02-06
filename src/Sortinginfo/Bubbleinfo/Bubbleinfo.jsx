@@ -5,7 +5,7 @@ export default class Bubbleinfo extends Component{
         return(
             <React.Fragment>
                 <div class="Mid" style={{textAlign:'center'}}>
-                    <h1>Enter the void</h1>
+                    <h1 style={{color:'azure'}}>Enter the void</h1>
                 </div>
                 <div class="Info border border-5 border-dark">
                     <h1 style={{marginTop:'20px'}} class="bh">Bubble Sort</h1>

@@ -135,32 +135,33 @@ class Firstcomp extends Component {
     }
     Quicks(){
       console.log(this.state.arr)
-      const animations=QuickSort(this.state.arr);
-      console.log(animations)
-      // for(let t=0;t<animations.length;t++){
-      //   const bar=document.getElementsByClassName('array-bar');
-      //   const colorc=t%3!==2;
-      //   if(colorc){
-      //     const[o,p]=animations[t];
-      //     const barts=bar[p].style;
-      //     const color=(t%3===0 ? 'red':colors);
-      //     setTimeout(()=>{
-      //       barts.backgroundColor=color;
-      //     },t*sp)
-      //   }
-      //   else{
-      //     setTimeout(()=>{
-      //       const[o,p]=animations[t];
-      //       var on,tw;
-      //       const baroso=bar[o].style;
-      //       const barost=bar[p].style;
-      //       on=baroso.height;
-      //       tw=barost.height;
-      //       baroso.height=tw;
-      //       barost.height=on;
-      //     },t*sp);
-      //   }
-      // }  
+      const animations=QuickSort(this.state.arr,0,this.state.arr.length-1);
+      for(let t=0;t<animations.length;t++){
+        const bar=document.getElementsByClassName('array-bar');
+        const colorc=t%3!==2;
+        if(colorc){
+          const[o,p]=animations[t];
+          const baros=bar[o].style;
+          const barts=bar[p].style;
+          const color=(t%3===0 ? 'red':colors);
+          setTimeout(()=>{
+            baros.backgroundColor=color;
+            barts.backgroundColor=color;
+          },t*sp)
+        }
+        else{
+          setTimeout(()=>{
+            const[o,p]=animations[t];
+            var on,tw;
+            const baroso=bar[o].style;
+            const barost=bar[p].style;
+            on=baroso.height;
+            tw=barost.height;
+            baroso.height=tw;
+            barost.height=on;
+          },t*sp);
+        }
+      }  
     }
     render(){
         return (
@@ -197,7 +198,7 @@ class Firstcomp extends Component {
                         <li><Link to="/b"><a className="dropdown-item test" href="#" onClick={this.Bubbles}>Bubble Sort</a></Link></li>
                         <li><Link to="/i"><a className="dropdown-item test" href="#" onClick={this.Insertions}>Insertion Sort</a></Link></li>
                         <li><Link to="/m"><a className="dropdown-item" href="#" onClick={this.Merges}>Merge Sort</a></Link></li>
-                        <li><a className="dropdown-item" href="#" onClick={this.Quicks}>Quick Sort(maintenance)</a></li>
+                        <li><Link to="/q"><a className="dropdown-item" href="#" onClick={this.Quicks}>Quick Sort</a></Link></li>
                       </ul>
                     </div>
                   </div>

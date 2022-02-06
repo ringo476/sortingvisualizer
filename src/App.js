@@ -5,6 +5,7 @@ import Firstcomp  from './Firstcomp/FirstComp/FirstComp';
 import Bubbleinfo from './Sortinginfo/Bubbleinfo/Bubbleinfo.jsx'
 import Insertioninfo from './Sortinginfo/Insertioninfo/Insertioninfo.jsx'
 import Mergeinfo from './Sortinginfo/Mergeinfo/Mergeinfo.jsx'
+import Quickinfo from './Sortinginfo/Quickinfo/Quickinfo.jsx'
 import { Route,Routes } from 'react-router-dom';
 import { Rightcomp } from './Rightcomp/Rightcomp';
 class App extends Component {
@@ -13,10 +14,11 @@ class App extends Component {
       <React.Fragment>
           <Firstcomp/>
           <Routes>
+            <Route exact path="/" element={<Rightcomp/>}/>
             <Route exact path="/m" element={<Mergeinfo/>}/>
             <Route exact path="/i" element={<Insertioninfo/>}/>
             <Route exact path="/b" element={<Bubbleinfo/>}/>
-            <Route exact path="/" element={<Rightcomp/>}/>
+            <Route exact path="/q" element={<Quickinfo/>}/>
           </Routes>
       </React.Fragment>
     );
