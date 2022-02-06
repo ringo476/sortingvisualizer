@@ -14,7 +14,7 @@ export default function BubbleSort(ret){
                 ret[j+1]=t;
             }
             else{
-                animation.push([j,j]);
+                animation.push([j,j])
             }
         }
     }

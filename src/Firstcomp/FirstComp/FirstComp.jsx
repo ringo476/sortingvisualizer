@@ -2,37 +2,36 @@ import React, { Component } from 'react';
 import BubbleSort from '../SortingUtil/Bubblesort/Bubblesort.jsx'
 import InsertionSort from '../SortingUtil/Insertionsort/Insertionsort.jsx'
 import MergeSort from '../SortingUtil/Mergesort/Mergesort.jsx'
+import QuickSort from '../SortingUtil/Quicksort/Quicksort.jsx'
 import {Link } from 'react-router-dom';
 import './FirstComp.css';
 const colors='rgba(10, 10, 119, 0.678)';
-
+const speed=[580,480,380,270,150,50]
+var sp=50;
 class Firstcomp extends Component {
     constructor(){
       super();
       this.state={
         arr:[],
-        len:20,
-        f:5
+        len:20
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleClick = this.handleClick.bind(this);
+      this.handleSpeed = this.handleSpeed.bind(this);
       this.Bubbles=this.Bubbles.bind(this);
       this.Insertions=this.Insertions.bind(this);
       this.Merges=this.Merges.bind(this);
-    } 
+      this.Quicks=this.Quicks.bind(this);
+    }
     resetArray(t){
       const array=[];
-      console.log(t);
       for(let i=0;i<t;i++){
         array.push(randomNumber(60,400));
       }
-      var y=this.state.f*30
       this.setState({
         arr:array,
         len:t,
-        f:y
       })
-      console.log(this.state.len)
     }
     handleChange(e){
       var t=e.target.value;
@@ -41,18 +40,19 @@ class Firstcomp extends Component {
       }
       this.resetArray(t);
     }
+    handleClick(){
+      this.resetArray(this.state.len);
+    }
+    handleSpeed(e){
+      sp=speed[e.target.value];
+    }
     Bubbles(){
       var temp=[];
       temp=this.state.arr.slice();
       const animations=BubbleSort(this.state.arr);
-      var tempo=[];
-      tempo=this.state.arr
       for(let t=0;t<animations.length;t++){
-        
         const bar=document.getElementsByClassName('array-bar');
         const colorc=t%3!==2;
-        //var re=;
-        
         if(colorc){
           const[o,p]=animations[t];
           const baros=bar[o].style;
@@ -61,7 +61,7 @@ class Firstcomp extends Component {
           setTimeout(()=>{
             baros.backgroundColor=color;
             barts.backgroundColor=color;
-          },t*100)
+          },t*sp)
         }
         else{
           setTimeout(()=>{
@@ -76,7 +76,7 @@ class Firstcomp extends Component {
             tw=barost.height;
             baroso.height=tw;
             barost.height=on;
-          },t*100);
+          },t*sp);
         }
       }
     }
@@ -91,7 +91,7 @@ class Firstcomp extends Component {
           const color=(t%3===0 ? 'red':colors);
           setTimeout(()=>{
             barts.backgroundColor=color;
-          },t*100)
+          },t*sp)
         }
         else{
           setTimeout(()=>{
@@ -103,7 +103,7 @@ class Firstcomp extends Component {
             tw=barost.height;
             baroso.height=tw;
             barost.height=on;
-          },t*100);
+          },t*sp);
         }
       }  
     }
@@ -111,7 +111,6 @@ class Firstcomp extends Component {
       const animations=MergeSort(this.state.arr);
       var t=0;
       const re=document.getElementsByClassName("test");
-      //re.
       for(let t=0;t<animations.length;t++){
         const bar=document.getElementsByClassName('array-bar');
         const colorc=t%3!==2;
@@ -123,20 +122,46 @@ class Firstcomp extends Component {
           setTimeout(()=>{
             baros.backgroundColor=color;
             barts.backgroundColor=color;
-          },t*50)
+          },t*sp)
         }
         else{
           setTimeout(()=>{
             const[o,p]=animations[t];
             const baroso=bar[o].style;
             baroso.height=`${p}px`;
-          },t*50);
+          },t*sp);
         }
       } 
     }
-    handleClick(){
-      this.resetArray(this.state.len);
-    } 
+    Quicks(){
+      console.log(this.state.arr)
+      const animations=QuickSort(this.state.arr);
+      console.log(animations)
+      // for(let t=0;t<animations.length;t++){
+      //   const bar=document.getElementsByClassName('array-bar');
+      //   const colorc=t%3!==2;
+      //   if(colorc){
+      //     const[o,p]=animations[t];
+      //     const barts=bar[p].style;
+      //     const color=(t%3===0 ? 'red':colors);
+      //     setTimeout(()=>{
+      //       barts.backgroundColor=color;
+      //     },t*sp)
+      //   }
+      //   else{
+      //     setTimeout(()=>{
+      //       const[o,p]=animations[t];
+      //       var on,tw;
+      //       const baroso=bar[o].style;
+      //       const barost=bar[p].style;
+      //       on=baroso.height;
+      //       tw=barost.height;
+      //       baroso.height=tw;
+      //       barost.height=on;
+      //     },t*sp);
+      //   }
+      // }  
+    }
     render(){
         return (
           <React.Fragment>
@@ -144,8 +169,18 @@ class Firstcomp extends Component {
                 <div className="row">
                   <div className="col-4">
                     <div className="left" >
-                      <label for="customRange3" className="form-label"><h4 className="he">Change Speed and Size</h4></label>
-                      <input type="range" className="form-range ht" min="0" max="10" step="2" id="customRange3" onChange={this.handleChange}/>
+                      <div class="sio">
+                        <label for="customRange3" className="form-label he">Change Size</label>
+                      </div>
+                      <div class="sit">  
+                        <input type="range" className="form-range ht" min="0" max="10" step="2" id="customRange3" onChange={this.handleChange}/>
+                      </div>
+                      <div class="spo">
+                        <label for="customRange3" className="form-label he">Change Speed</label>
+                      </div>
+                      <div class="spt">  
+                        <input type="range" className="form-range ht" min="0" max="5" step="1" id="customRange3" onChange={this.handleSpeed}/>
+                      </div>
                     </div>
                   </div>
                   <div className="col-5">
@@ -162,7 +197,7 @@ class Firstcomp extends Component {
                         <li><Link to="/b"><a className="dropdown-item test" href="#" onClick={this.Bubbles}>Bubble Sort</a></Link></li>
                         <li><Link to="/i"><a className="dropdown-item test" href="#" onClick={this.Insertions}>Insertion Sort</a></Link></li>
                         <li><Link to="/m"><a className="dropdown-item" href="#" onClick={this.Merges}>Merge Sort</a></Link></li>
-                        <li><a className="dropdown-item" href="#">Quick Sort(maintenance)</a></li>
+                        <li><a className="dropdown-item" href="#" onClick={this.Quicks}>Quick Sort(maintenance)</a></li>
                       </ul>
                     </div>
                   </div>

@@ -13,11 +13,11 @@
     background-color: #cc00ff;
 }
 .he{
+    font-size: 20px;
     color: rosybrown;
 }
 .left{
-    margin-top: 15px;
-    margin-right: 140px;
+    margin-right: 110px;
     margin-left: 40px;
 }
 .ret{
@@ -77,6 +77,26 @@
     display:none;
 }
 @media screen and  (max-width:1300px){
+    .sio{
+        position: absolute;
+        top:7px;
+    }
+    .sit{
+        position: absolute;
+        top:12px;
+    }
+    .spo{
+        position: absolute;
+        top:72px;
+    }
+    .spt{
+        position: absolute;
+        top:90px;
+    }
+    .reto{
+        width: 50px;
+        height:50px;
+    }
     .ct{
         margin-right: 120px;
         position: absolute;
@@ -92,13 +112,10 @@
     .he{
         font-size: 18px;
         margin-bottom: 0px;
-        position: absolute;
-        top:26px;
-        left:55px;
     }
     .ht{ 
         height: 10px;
-        width: 100px;
+        width: 50px;
         margin-top: 30px;
     }
     .head{
@@ -107,6 +124,16 @@
     }
 }
 @media screen and (max-width:900px){
+    .he{
+        font-size: 10px;
+    }
+    .ht{
+        width: 20px;
+    }
+    .spo{
+        position: absolute;
+        top:70px;
+    }
     .ct{
         margin-right: 20px;
         position: absolute;
